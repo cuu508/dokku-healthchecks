@@ -30,8 +30,4 @@ COPY CHECKS /app/
 RUN touch /app/hc.sqlite && chown hc:hc /app/hc.sqlite
 RUN python3 manage.py collectstatic --noinput && python3 manage.py compress
 
-EXPOSE 9090
-
 CMD [ "uwsgi", "uwsgi.ini" ]
-
-
