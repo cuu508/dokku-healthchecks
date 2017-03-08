@@ -5,40 +5,40 @@ Local settings for the HealthChecks app
 import os
 
 
-ALLOWED_HOSTS = os.getenv('HEALTHCHECKS_ALLOWED_HOSTS', '*').split(",")
-DEBUG = os.getenv('HEALTHCHECKS_DEBUG', False)
+ALLOWED_HOSTS = os.getenv('HC_ALLOWED_HOSTS', '*').split(",")
+DEBUG = os.getenv('HC_DEBUG', False)
 
-HOST = os.getenv('HEALTHCHECKS_HOST', "localhost")
-SITE_ROOT = os.getenv('HEALTHCHECKS_SITE_ROOT', "http://localhost:9090")
+HOST = os.getenv('HC_HOST', "localhost")
+SITE_ROOT = os.getenv('HC_SITE_ROOT', "http://localhost:9090")
 PING_ENDPOINT = SITE_ROOT + "/ping/"
 
-DEFAULT_FROM_EMAIL = os.getenv('HEALTHCHECKS_EMAIL_FROM', "healthchecks@example.org")
-EMAIL_HOST = os.getenv('HEALTHCHECKS_EMAIL_HOST', "localhost")
-EMAIL_PORT = os.getenv('HEALTHCHECKS_EMAIL_PORT', 25)
-EMAIL_HOST_USER = os.getenv('HEALTHCHECKS_EMAIL_USER', "")
-EMAIL_HOST_PASSWORD = os.getenv('HEALTHCHECKS_EMAIL_PASSWORD', "")
+DEFAULT_FROM_EMAIL = os.getenv('HC_EMAIL_FROM', "healthchecks@example.org")
+EMAIL_HOST = os.getenv('HC_EMAIL_HOST', "localhost")
+EMAIL_PORT = os.getenv('HC_EMAIL_PORT', 25)
+EMAIL_HOST_USER = os.getenv('HC_EMAIL_USER', "")
+EMAIL_HOST_PASSWORD = os.getenv('HC_EMAIL_PASSWORD', "")
 
-if os.environ.get("HEALTHCHECKS_DB") == "postgres":
+if os.environ.get("HC_DB") == "postgres":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv("HEALTHCHECKS_DB_NAME", "hc"),
-            'USER': os.getenv('HEALTHCHECKS_DB_USER', "postgres"),
-            'PASSWORD': os.getenv('HEALTHCHECKS_DB_PASSWORD', ""),
-            'HOST': os.getenv('HEALTHCHECKS_DB_HOST', "localhost"),
-            'PORT': os.getenv('HEALTHCHECKS_DB_PORT'),
+            'NAME': os.getenv("HC_DB_NAME", "hc"),
+            'USER': os.getenv('HC_DB_USER', "postgres"),
+            'PASSWORD': os.getenv('HC_DB_PASSWORD', ""),
+            'HOST': os.getenv('HC_DB_HOST', "localhost"),
+            'PORT': os.getenv('HC_DB_PORT'),
             'TEST': {'CHARSET': 'UTF8'}
         }
     }
 
-if os.environ.get("HEALTHCHECKS_DB") == "mysql":
+if os.environ.get("HC_DB") == "mysql":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'USER': os.getenv('HEALTHCHECKS_DB_USER', "root"),
-            'PASSWORD': os.getenv('HEALTHCHECKS_DB_PASSWORD', ""),
-            'NAME': os.getenv("HEALTHCHECKS_DB_NAME", "hc"),
-            'HOST': os.getenv('HEALTHCHECKS_DB_HOST', "localhost"),
+            'USER': os.getenv('HC_DB_USER', "root"),
+            'PASSWORD': os.getenv('HC_DB_PASSWORD', ""),
+            'NAME': os.getenv("HC_DB_NAME", "hc"),
+            'HOST': os.getenv('HC_DB_HOST', "localhost"),
             'TEST': {'CHARSET': 'UTF8'}
         }
     }
