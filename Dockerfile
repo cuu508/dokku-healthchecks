@@ -15,20 +15,23 @@ RUN set -x && apt-get -qq update \
         uwsgi \
         uwsgi-plugin-python3 \
         --no-install-recommends \
-    && svn export https://github.com/healthchecks/healthchecks/trunk /src \
-    && pip3 install --no-cache-dir -r /src/requirements.txt \
+    && svn export https://github.com/healthchecks/healthchecks/trunk /app \
+    && pip3 install --no-cache-dir -r /app/requirements.txt \
     && pip3 install --no-cache-dir braintree \
     && apt-get clean \
     && rm -fr /var/lib/apt/lists/*
 
-WORKDIR /src
+WORKDIR /app
 
-COPY local_settings.py /src/hc
-COPY uwsgi.ini /src/uwsgi.ini
+COPY local_settings.py /app/hc/
+COPY uwsgi.ini /app/
+COPY CHECKS /app/
 
-RUN touch /src/hc.sqlite && chown hc:hc /src/hc.sqlite
+RUN touch /app/hc.sqlite && chown hc:hc /app/hc.sqlite
 RUN python3 manage.py collectstatic --noinput && python3 manage.py compress
 
 EXPOSE 9090
 
 CMD [ "uwsgi", "uwsgi.ini" ]
+
+
