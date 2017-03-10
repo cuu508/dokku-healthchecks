@@ -10,7 +10,7 @@ DEBUG = os.getenv('HC_DEBUG', False)
 
 HOST = os.getenv('HC_HOST', "localhost")
 SITE_ROOT = os.getenv('HC_SITE_ROOT', "http://localhost:9090")
-PING_ENDPOINT = SITE_ROOT + "/ping/"
+PING_ENDPOINT = os.getenv('HC_PING_ENDPOINT', SITE_ROOT + "/ping/")
 
 DEFAULT_FROM_EMAIL = os.getenv('HC_EMAIL_FROM', "healthchecks@example.org")
 EMAIL_HOST = os.getenv('HC_EMAIL_HOST', "localhost")
