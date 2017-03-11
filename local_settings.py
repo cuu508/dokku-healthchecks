@@ -14,9 +14,10 @@ PING_ENDPOINT = os.getenv('HC_PING_ENDPOINT', SITE_ROOT + "/ping/")
 
 DEFAULT_FROM_EMAIL = os.getenv('HC_EMAIL_FROM', "healthchecks@example.org")
 EMAIL_HOST = os.getenv('HC_EMAIL_HOST', "localhost")
-EMAIL_PORT = os.getenv('HC_EMAIL_PORT', 25)
+EMAIL_PORT = int(os.getenv('HC_EMAIL_PORT', 25))
 EMAIL_HOST_USER = os.getenv('HC_EMAIL_USER', "")
 EMAIL_HOST_PASSWORD = os.getenv('HC_EMAIL_PASSWORD', "")
+EMAIL_USE_TLS = EMAIL_PORT == 587
 
 if os.environ.get("HC_DB") == "postgres":
     DATABASES = {
