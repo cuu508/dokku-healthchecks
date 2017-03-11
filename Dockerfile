@@ -28,4 +28,6 @@ COPY . /app/
 RUN touch /app/hc.sqlite && chown hc:hc /app/hc.sqlite
 RUN python3 manage.py collectstatic --noinput && python3 manage.py compress
 
+USER hc
+
 CMD [ "uwsgi", "uwsgi.ini" ]
