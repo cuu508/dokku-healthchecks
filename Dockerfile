@@ -23,9 +23,7 @@ RUN set -x && apt-get -qq update \
 
 WORKDIR /app
 
-COPY local_settings.py /app/hc/
-COPY uwsgi.ini /app/
-COPY CHECKS /app/
+COPY . /app/
 
 RUN touch /app/hc.sqlite && chown hc:hc /app/hc.sqlite
 RUN python3 manage.py collectstatic --noinput && python3 manage.py compress
