@@ -30,4 +30,6 @@ RUN python3 manage.py collectstatic --noinput && python3 manage.py compress
 
 USER hc
 
+EXPOSE 5000
+
 CMD [ "uwsgi", "uwsgi.ini" ]
