@@ -43,3 +43,5 @@ if os.environ.get("HC_DB") == "mysql":
             'TEST': {'CHARSET': 'UTF8'}
         }
     }
+
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
