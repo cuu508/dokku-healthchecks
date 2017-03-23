@@ -32,4 +32,4 @@ USER hc
 
 EXPOSE 5000
 
-CMD [ "uwsgi", "uwsgi.ini" ]
+CMD [ "/usr/bin/uwsgi-core", "uwsgi.ini" ]
