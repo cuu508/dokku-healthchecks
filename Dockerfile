@@ -26,6 +26,9 @@ WORKDIR /app
 COPY . /app/
 
 RUN touch /app/hc.sqlite && chown hc:hc /app/hc.sqlite
+
+# Populate /app/hc.sqlite --
+RUN python3 manage.py migrate
 RUN python3 manage.py collectstatic --noinput && python3 manage.py compress
 
 USER hc
