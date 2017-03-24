@@ -7,6 +7,7 @@ import os
 
 ALLOWED_HOSTS = os.getenv('HC_ALLOWED_HOSTS', '*').split(",")
 DEBUG = os.getenv('HC_DEBUG', False)
+SECURE_HSTS_SECONDS = int(os.getenv('HC_HSTS_SECONDS', 0))
 
 HOST = os.getenv('HC_HOST', "localhost")
 SITE_ROOT = os.getenv('HC_SITE_ROOT', "http://localhost:9090")
