@@ -25,7 +25,7 @@ EMAIL_HOST = os.getenv('HC_EMAIL_HOST', "localhost")
 EMAIL_PORT = int(os.getenv('HC_EMAIL_PORT', 25))
 EMAIL_HOST_USER = os.getenv('HC_EMAIL_USER', "")
 EMAIL_HOST_PASSWORD = os.getenv('HC_EMAIL_PASSWORD', "")
-EMAIL_USE_TLS = EMAIL_PORT == 587
+EMAIL_USE_TLS = EMAIL_PORT in (587, 2587)
 
 # Database
 if os.environ.get("HC_DB") == "postgres":
