@@ -1,11 +1,12 @@
 """ Read local settings from environment variables. """
 
 import os
+import uuid
 
 
 DEBUG = os.getenv('HC_DEBUG', False)
 # If HC_SECRET_KEY is absent then use a temporary random one
-SECRET_KEY = os.getenv("HC_SECRET_KEY", os.urandom(20).encode("hex"))
+SECRET_KEY = os.getenv("HC_SECRET_KEY", str(uuid.uuid4()))
 
 # HTTP stuff
 ALLOWED_HOSTS = os.getenv('HC_ALLOWED_HOSTS', '*').split(",")
