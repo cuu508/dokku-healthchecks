@@ -45,3 +45,6 @@ if os.environ.get("HC_DB") == "mysql":
     }
 
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
+
+if "HC_SENTRY_DSN" in os.environ:
+    RAVEN_CONFIG = {"dsn": os.getenv("HC_SENTRY_DSN")}

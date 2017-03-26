@@ -17,7 +17,7 @@ RUN set -x && apt-get -qq update \
         --no-install-recommends \
     && svn export https://github.com/healthchecks/healthchecks/trunk /app \
     && pip3 install --no-cache-dir -r /app/requirements.txt \
-    && pip3 install --no-cache-dir braintree \
+    && pip3 install --no-cache-dir braintree raven \
     && apt-get clean \
     && rm -fr /var/lib/apt/lists/*
 
