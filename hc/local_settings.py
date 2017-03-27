@@ -9,7 +9,7 @@ DEBUG = os.getenv('HC_DEBUG', False)
 SECRET_KEY = os.getenv("HC_SECRET_KEY", str(uuid.uuid4()))
 
 # HTTP stuff
-ALLOWED_HOSTS = os.getenv('HC_ALLOWED_HOSTS', '*').split(",")
+ALLOWED_HOSTS = os.getenv('HC_ALLOWED_HOSTS', '*').split(",") + ["hc-internal"]
 SESSION_COOKIE_SECURE = "HC_SESSION_COOKIE_SECURE" in os.environ
 CSRF_COOKIE_SECURE = "HC_CSRF_COOKIE_SECURE" in os.environ
 SITE_ROOT = os.getenv('HC_SITE_ROOT', "http://localhost:5000")
