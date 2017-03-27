@@ -14,7 +14,7 @@ SESSION_COOKIE_SECURE = "HC_SESSION_COOKIE_SECURE" in os.environ
 CSRF_COOKIE_SECURE = "HC_CSRF_COOKIE_SECURE" in os.environ
 SITE_ROOT = os.getenv('HC_SITE_ROOT', "http://localhost:5000")
 PING_ENDPOINT = os.getenv('HC_PING_ENDPOINT', SITE_ROOT + "/ping/")
-PING_EMAIL_DOMAIN = os.getenv("HC_PING_ENMAIL_DOMAIN", "localhost")
+PING_EMAIL_DOMAIN = os.getenv("HC_PING_EMAIL_DOMAIN", "localhost")
 
 # Generate .gz files in CACHE directory.
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
