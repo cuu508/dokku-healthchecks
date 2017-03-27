@@ -15,7 +15,7 @@ RUN set -x && apt-get -qq update \
         uwsgi \
         uwsgi-plugin-python3 \
         --no-install-recommends \
-    && svn export https://github.com/healthchecks/healthchecks/trunk /app \
+    && svn export https://github.com/healthchecks/healthchecks/tags/v1.0 /app \
     && pip3 install --no-cache-dir -r /app/requirements.txt \
     && pip3 install --no-cache-dir braintree raven \
     && apt-get clean \
