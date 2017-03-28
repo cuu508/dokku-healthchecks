@@ -38,7 +38,8 @@ if os.environ.get("HC_DB") == "postgres":
             'PASSWORD': os.getenv('HC_DB_PASSWORD', ""),
             'HOST': os.getenv('HC_DB_HOST', "localhost"),
             'PORT': os.getenv('HC_DB_PORT'),
-            'TEST': {'CHARSET': 'UTF8'}
+            'TEST': {'CHARSET': 'UTF8'},
+            'CONN_MAX_AGE': 60
         }
     }
 
